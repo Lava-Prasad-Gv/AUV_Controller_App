@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="@drawable/appbackground"
+    android:layout_height="match_parent"
+    tools:context=".ControlActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:background="@color/MintGreen"
+        android:text="Control Panel"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText,SpUsage" />
+
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/black"
+        android:text="System Logs"
+        android:textAlignment="center"
+        android:textColor="@color/OceanBlue"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+
+    <TextView
+        android:id="@+id/readingboard"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="224dp"
+        android:background="@color/black"
+        android:text=" X:0  Y:0"
+        android:textColor="@color/CrimsonRed"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/t_board"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:text="Throtlle : 20% "
+        android:textAlignment="center"
+        android:textColor="@color/CrimsonRed"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@+id/readingboard"
+        app:layout_constraintEnd_toStartOf="@+id/readingboard"
+        app:layout_constraintTop_toTopOf="@+id/readingboard" />
+
+    <TextView
+        android:id="@+id/statusLed"
+        android:layout_width="80dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="252dp"
+        android:background="@drawable/led_off"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+
+    <TextView
+        android:id="@+id/statusLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Offline"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/statusLed"
+        app:layout_constraintEnd_toEndOf="@+id/statusLed"
+        app:layout_constraintStart_toStartOf="@+id/statusLed"
+        app:layout_constraintTop_toTopOf="@+id/statusLed" />
+
+    <TextView
+        android:id="@+id/harmStatus"
+        android:layout_width="80dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/led_off"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="@+id/statusLed"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/statusLed"
+        app:layout_constraintTop_toBottomOf="@+id/statusLed" />
+
+    <TextView
+        android:id="@+id/harmLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dis Arm"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/harmStatus"
+        app:layout_constraintEnd_toEndOf="@+id/harmStatus"
+        app:layout_constraintStart_toStartOf="@+id/harmStatus"
+        app:layout_constraintTop_toTopOf="@+id/harmStatus" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="218dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/textView5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/readingboard">
+        <TextView
+            android:id="@+id/logmsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:textColor="@color/white"
+            android:padding="10dp"
+            android:layout_margin="4dp"
+            android:text=""
+            android:textSize="12dp"
+            android:textStyle="italic" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/reConnectBtn"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        android:contentDescription="System status offline"
+        android:text="Re-Connect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/armbtn"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:text="Arm"
+        android:textColor="@color/IvoryWhite"
+        app:layout_constraintEnd_toEndOf="@+id/reConnectBtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/reConnectBtn"
+        app:layout_constraintTop_toBottomOf="@+id/reConnectBtn" />
+
+    <View
+        android:id="@+id/joystick_base"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/joystick_base_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:id="@+id/joystick_handle"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/joystick_handle_shape"
+        app:layout_constraintBottom_toBottomOf="@+id/joystick_base"
+        app:layout_constraintEnd_toEndOf="@+id/joystick_base"
+        app:layout_constraintStart_toStartOf="@+id/joystick_base"
+        app:layout_constraintTop_toTopOf="@+id/joystick_base" />
+
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/slider"
+        android:layout_width="220dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="8dp"
+        android:rotation="270"
+        android:value="20"
+        android:valueFrom="0"
+        android:valueTo="100"
+        app:layout_constraintBottom_toBottomOf="@+id/joystick_base"
+        app:layout_constraintEnd_toStartOf="@+id/joystick_handle"
+        app:layout_constraintTop_toTopOf="@+id/joystick_base"
+        app:layout_constraintVertical_bias="0.519"
+        app:thumbColor="@color/MintGreen"
+        app:trackColorActive="@color/OceanBlue" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

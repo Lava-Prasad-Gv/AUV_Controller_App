@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="OceanBlue">#1E90FF</color>
+    <color name="SunsetOrange">#FF4500</color>
+    <color name="MintGreen">#98FF98</color>
+    <color name="CharcoalGray">#36454F</color>
+    <color name="IvoryWhite">#FFFFF0</color>
+    <color name="AmberYellow">#FFBF00</color>
+    <color name="EmeraldGreen">#50C878</color>
+    <color name="CrimsonRed">#DC143C</color>
+    <color name="ocean_blue">#2F80ED</color>
+
+</resources>
