@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_aqua_gradient"
+    android:padding="16dp">
+
+    <!-- Title Section -->
+
+    <!-- Status Badge -->
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Overview"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/statusBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_status_badge_offline"
+        android:padding="4dp"
+        android:text="Offline"
+        android:textColor="#FF0000"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/title" />
+
+    <ImageButton
+        android:id="@+id/btnReconnect"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="44dp"
+        android:background="@drawable/bg_button_icon_glow"
+        android:contentDescription="Reconnect"
+        android:padding="8dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_reconnect"
+        android:stateListAnimator="@null"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView3"
+        app:layout_constraintStart_toEndOf="@+id/statusBadge"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.476"
+        app:tint="@android:color/white" />
+
+    <ImageButton
+        android:id="@+id/btnLog"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/bg_button_icon_glow"
+        android:contentDescription="Logs"
+        android:scaleType="centerInside"
+        android:src="@drawable/log"
+        android:stateListAnimator="@null"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView3"
+        app:layout_constraintStart_toEndOf="@+id/btnReconnect"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:padding="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintVertical_bias="0.026">
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:columnCount="3"
+            android:rowCount="6"
+            android:useDefaultMargins="true">
+
+            <!-- Map Card occupying a 2x2 space at the top-left (cells 1,2,4,5).
+                 We define this one first and set its position and span. -->
+            <include
+                android:id="@+id/card_ph"
+                layout="@layout/item_sensor_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!-- This will go into cell (row 1, column 2) -->
+
+            <include
+                android:id="@+id/card_map"
+                layout="@layout/item_map_card"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_row="0"
+                android:layout_rowSpan="2"
+                android:layout_column="1"
+                android:layout_columnSpan="2"
+                android:layout_gravity="fill" />
+
+            <!-- The rest of the cards will now automatically fill the remaining cells.
+                 GridLayout will place them in the next available spots in order. -->
+
+            <!-- This will automatically go into the next free cell: (row 0, column 2) -->
+
+            <!-- This will go into cell (row 2, column 0) -->
+            <include
+                android:id="@+id/card_turb"
+                layout="@layout/item_sensor_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!-- This will go into cell (row 2, column 1) -->
+            <include
+                android:id="@+id/card_temp"
+                layout="@layout/item_sensor_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!-- This will go into cell (row 2, column 2) -->
+            <include
+                android:id="@+id/card_amm"
+                layout="@layout/item_sensor_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <include
+                android:id="@+id/card_do"
+                layout="@layout/item_sensor_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </GridLayout>
+    </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/controlCard"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/bg_glass_card"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scrollView3">
+
+        <!-- STATUS BADGE (Tap to Toggle) -->
+        <LinearLayout
+            android:id="@+id/statusBadgeContainer"
+            android:layout_width="180dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/bg_status_badge_online"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="2dp">
+
+            <!-- ARM Text -->
+            <TextView
+                android:id="@+id/btnStatusArm"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_button_glow_high"
+                android:clickable="true"
+                android:elevation="4dp"
+                android:focusable="true"
+                android:fontFamily="@font/poppins_semibold"
+                android:gravity="center"
+                android:paddingVertical="8dp"
+                android:text="ARM"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <!-- DISARM Text -->
+            <TextView
+                android:id="@+id/btnStatusDisarm"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_button_glow"
+                android:clickable="true"
+                android:elevation="4dp"
+                android:focusable="true"
+                android:fontFamily="@font/poppins_semibold"
+                android:gravity="center"
+                android:paddingVertical="10dp"
+                android:text="DISARM"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- EXAMINE BUTTON -->
+        <TextView
+            android:id="@+id/btnExamine"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_button_glow"
+            android:clickable="true"
+            android:elevation="4dp"
+            android:focusable="true"
+            android:fontFamily="@font/poppins_semibold"
+            android:gravity="center"
+            android:paddingVertical="8dp"
+            android:text="Examine"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/joystick_base"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="92dp"
+        android:background="@drawable/joy_stick_bg"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView3"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/scrollView3"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
+
+    <View
+        android:id="@+id/joystick_handle"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/joystick_base_shape"
+        app:layout_constraintBottom_toBottomOf="@+id/joystick_base"
+        app:layout_constraintEnd_toEndOf="@+id/joystick_base"
+        app:layout_constraintStart_toStartOf="@+id/joystick_base"
+        app:layout_constraintTop_toTopOf="@+id/joystick_base" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/slider"
+        android:layout_width="220dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="8dp"
+        android:rotation="270"
+        android:value="20"
+        android:valueFrom="0"
+        android:valueTo="100"
+        app:layout_constraintBottom_toBottomOf="@+id/joystick_base"
+        app:layout_constraintEnd_toStartOf="@+id/joystick_handle"
+        app:layout_constraintTop_toTopOf="@+id/joystick_base"
+        app:layout_constraintVertical_bias="0.519"
+        app:thumbColor="@color/MintGreen"
+        app:trackColorActive="@color/OceanBlue"
+        app:trackColorInactive="@color/slider_clr" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

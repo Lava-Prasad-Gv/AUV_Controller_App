@@ -1,53 +1,46 @@
 package com.example.mathsya_v_01;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * Simple container for control state — position (x,y) and throttle/arm.
+ * Adjust fields as needed (add yaw, pitch, etc.).
+ */
 public class ControlState {
+    private double x = 0.0;
+    private double y = 0.0;
+    private double throttle = 0.0;
+    private boolean armed = false;
 
-    private boolean armed;
-    private int throttle;       // 0–100
-    private double joystickX;
-    private double joystickY;
+    public ControlState() {}
 
-    public ControlState() {
-        this.armed = false;
-        this.throttle = 0;
-        this.joystickX = 0.0;
-        this.joystickY = 0.0;
+    public void setPosition(double x, double y) {
+        this.x = x;
+        this.y = y;
     }
 
-    // ---- Setters ----
-    public synchronized void setArmed(boolean armed) {
+    public void setThrottle(double throttle) {
+        this.throttle = throttle;
+    }
+
+    public void setArmed(boolean armed) {
         this.armed = armed;
     }
 
-    public synchronized void setThrottle(int throttle) {
-        this.throttle = Math.max(0, Math.min(throttle, 100));
-    }
-
-    public synchronized void setPosition(double x, double y) {
-        this.joystickX = safeDouble(x);
-        this.joystickY = safeDouble(y);
-    }
-
-    // ---- JSON Export ----
-    public synchronized JSONObject toJSON() {
+    /**
+     * Build JSON to send to server. Keep keys in a format server expects.
+     */
+    public JSONObject toJSON() {
         JSONObject json = new JSONObject();
         try {
-            json.put("armed", armed);
+            json.put("x", x);
+            json.put("y", y);
             json.put("throttle", throttle);
-            json.put("joystick_x", joystickX);
-            json.put("joystick_y", joystickY);
-        } catch (JSONException e) {
-            e.printStackTrace();
+            json.put("armed", armed);
+            json.put("ts", System.currentTimeMillis());
+        } catch (Exception e) {
+            // should not happen
         }
         return json;
-    }
-
-    // ---- Safe double (avoid NaN/Infinity) ----
-    private double safeDouble(double val) {
-        if (Double.isNaN(val) || Double.isInfinite(val)) return 0.0;
-        return val;
     }
 }

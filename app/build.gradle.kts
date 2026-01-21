@@ -42,7 +42,7 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation ("pl.droidsonroids.gif:android-gif-drawable:1.2.29")
-
+    implementation ("com.google.android.gms:play-services-maps:18.2.0")
     implementation ("io.socket:socket.io-client:1.0.1")// Socket.IO Java client
-
+    implementation ("com.squareup.okhttp3:okhttp:4.12.0")
 }

@@ -240,7 +240,7 @@ public class LoadingActivity extends AppCompatActivity {
     }
 
     public void gotoControlLayout() {
-        Intent intent = new Intent(this, ControlActivity.class);
+        Intent intent = new Intent(this, DashboardActivity.class);
         startActivity(intent);
     }
 }

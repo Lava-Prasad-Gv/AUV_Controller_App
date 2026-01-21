@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Deep navy base -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#8F9FED" />
+        </shape>
+    </item>
+
+    <!-- Indigo overlay -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:angle="270"
+                android:startColor="#0F00A9"
+                android:centerColor="#00174D"
+                android:endColor="#0b1220"
+                android:useLevel="false" />
+        </shape>
+    </item>
+
+    <!-- Cyan glow overlay -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="800dp"
+                android:centerX="50%"
+                android:centerY="80%"
+                android:startColor="#220ea5e9"
+                android:endColor="#00000000"
+                android:useLevel="false" />
+        </shape>
+    </item>
+
+    <!-- Aqua corner glow -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="600dp"
+                android:centerX="10%"
+                android:centerY="10%"
+                android:startColor="#2222d3ee"
+                android:endColor="#00000000"
+                android:useLevel="false" />
+        </shape>
+    </item>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#08000000" />
+
+
+</layer-list>

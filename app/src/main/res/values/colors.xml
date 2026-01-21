@@ -12,5 +12,8 @@
     <color name="EmeraldGreen">#50C878</color>
     <color name="CrimsonRed">#DC143C</color>
     <color name="ocean_blue">#2F80ED</color>
+    <color name="slider_clr">#22FFFFFF</color>
+    <!-- Other colors -->
+    <color name="translucent">#00FFFFFF</color>
 
 </resources>

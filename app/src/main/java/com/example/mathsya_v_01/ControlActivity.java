@@ -12,8 +12,6 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.concurrent.ConcurrentHashMap;
-
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -24,7 +22,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.slider.Slider;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -39,7 +36,6 @@ public class ControlActivity extends AppCompatActivity {
     // It's recommended to make this configurable in a real app
     private static final String TARGET_IP = "10.42.0.1";
     private static final String SERVER_URL = "http://" + TARGET_IP + ":5000";
-
     private ControlState controlState;
     private static final int TEST_PORT = 80; // Port for the TCP ping fallback
     private Socket socket;
@@ -90,15 +86,15 @@ public class ControlActivity extends AppCompatActivity {
         logSetter("Pinging Vehicle to check connectivity...");
         testPingAndConnect();
 
-        // Setup Listeners
+
         setupListeners();
     }
 
     private void setupSocket() {
         try {
-            socket = SocketManager.getInstance().getSocket();
-            setupSocketEventListeners();
-            socket.connect();
+//            socket = SocketManager.getInstance().getSocket();
+//            setupSocketEventListeners();
+//            socket.connect();
 
             logSetter("Socket initialized. Attempting to connect to " + SERVER_URL);
 

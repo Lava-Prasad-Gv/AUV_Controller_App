@@ -1,5 +1,10 @@
 pluginManagement {
     repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+    repositories {
         google {
             content {
                 includeGroupByRegex("com\\.android.*")

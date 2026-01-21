@@ -24,12 +24,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         Button connectBtn = findViewById(R.id.connectBtn);
-        connectBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                gotoLoadingLayout();
-            }
-        });
+        connectBtn.setOnClickListener(view -> gotoLoadingLayout());
     }
     public void gotoLoadingLayout(){
         Intent intent = new Intent(this, LoadingActivity.class);
